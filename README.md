@@ -17,21 +17,21 @@ You can then import `<fission>` in your code.
 If you're using flakes, set this repo as an input and add to `nixpkgs.overlays` like this:
 
 ```nix
-inputs = {
-  fission.url = "github:fission-codes/nix-overlay";
-};
-
-outputs = { self, nixpkgs, fission }: {
-  nixosConfigurations.machine = nixpkgs.lib.nixosSystem {
-    ...
-    modules =
-      [
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [ fission.overlay ];
-          ...
-        })
-      ];
+{
+  inputs = {
+    fission.url = "github:fission-codes/nix-overlay";
   };
-};
 
+  outputs = { self, nixpkgs, fission }: {
+    nixosConfigurations.machine = nixpkgs.lib.nixosSystem {
+      modules =
+        [
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ fission.overlay ];
+            ...
+          })
+        ];
+    };
+  };
+}
 ```
