@@ -11,8 +11,8 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "fission-codes";
     repo = "go-ipfs";
-    rev = "1372a32212432d0bec54d86c82145582ee179cea";
-    sha256 = "sha256-/Wjr0KgzbbopLD+TUYqVfCKMbo46UyLEdfxDYcVMGbo=";
+    rev = "1f68095bf1cacc9bdf89c0fb052087af3641ac0c";
+    sha256 = "sha256-7C8rrW7QRqD6KmmM5hnyz1m9z+IWJZl/tHKzwPaZ2EM=";
   };
 
   subPackages = [ "cmd/ipfs" ];
@@ -23,7 +23,7 @@ buildGoModule {
 
   passthru.tests.kubo = nixosTests.kubo;
 
-  vendorSha256 = "sha256-/6kojsf0LJr0aLy+8DyEEmNnjf92EYE5aA0I1tQDM4o=";
+  vendorSha256 = "sha256-TLB7xdp7n1fqQ+O+rfSyxfLvHX/5q3uOJlsJKlQfc2U=";
 
   outputs = [ "out" "systemd_unit" "systemd_unit_hardened" ];
 

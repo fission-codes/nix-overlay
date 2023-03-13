@@ -9,11 +9,11 @@ buildGoModule {
   src = fetchFromGitHub {
     owner = "fission-codes";
     repo = "kubo-car-mirror";
-    rev = "b80ad74e8a5d7f23794e32d96ceab391260f917f";
-    sha256 = "sha256-Mex3nrM04s5X61UxmRRT7JGw/w09/8xW7pwX+IOGtiA=";
+    rev = "b8d30df89fa7f00f2dd861a8f7481f9ed4c017d0";
+    sha256 = "sha256-qZPaFfyYEaaVjVHRYhN7DPK6ZK2s5wmpqwEqDZXPYdU=";
   };
 
-  vendorSha256 = "sha256-sBJ2za2jVtMd1ct3o54CbuHP++gdvkqnSF5h6aay8iE=";
+  vendorSha256 = "sha256-mN6urTjIdgwLp8/U7jc2VLhpFV/6ngu93rh0JJBuLaA=";
 
   subPackages = [ "cmd/carmirror" ];
 }
