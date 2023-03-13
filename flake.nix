@@ -13,19 +13,20 @@
   };
 
   outputs = { self, nixpkgs, flake-utils, fission, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        overlay = final: _prev: import ../pkgs { inherit fission system; pkgs = final; };
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          packages = import ./pkgs {
+            inherit fission pkgs system;
+          };
 
-        packages = import ./pkgs {
-          inherit fission pkgs system;
-        };
-
-        devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [ jq ];
-        };
-      }
-    );
+          devShells.default = pkgs.mkShell {
+            buildInputs = with pkgs; [ jq ];
+          };
+        }
+      ) // {
+      overlay = final: _prev: import ./pkgs { inherit fission; system = final.system; pkgs = final; };
+    };
 }
