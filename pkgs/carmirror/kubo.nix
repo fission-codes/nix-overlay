@@ -1,6 +1,6 @@
 { pkgs, buildGoModule, fetchFromGitHub, nixosTests, ... }:
 let
-  version = "0.18.1";
+  version = "0.18.1-carmirror";
 in
 buildGoModule {
   pname = "kubo";
