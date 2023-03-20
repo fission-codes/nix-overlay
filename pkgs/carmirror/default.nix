@@ -1,8 +1,8 @@
-{ pkgs, buildGoModule, fetchFromGitHub, ... }:
+{ pkgs, buildGo119Module, fetchFromGitHub, ... }:
 let
   version = "0.1.0";
 in
-buildGoModule {
+buildGo119Module {
   name = "carmirror";
   version = version;
 
