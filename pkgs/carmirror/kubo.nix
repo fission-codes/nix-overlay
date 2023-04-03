@@ -10,7 +10,7 @@ buildGo119Module {
 
   src = fetchFromGitHub {
     owner = "fission-codes";
-    repo = "go-ipfs";
+    repo = "kubo";
     rev = "1f68095bf1cacc9bdf89c0fb052087af3641ac0c";
     sha256 = "sha256-7C8rrW7QRqD6KmmM5hnyz1m9z+IWJZl/tHKzwPaZ2EM=";
   };
