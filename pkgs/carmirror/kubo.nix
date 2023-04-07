@@ -1,6 +1,6 @@
 { pkgs, buildGo119Module, fetchFromGitHub, nixosTests, ... }:
 let
-  version = "0.18.1-carmirror";
+  version = "0.19.1-carmirror";
 in
 buildGo119Module {
   pname = "kubo";
@@ -11,8 +11,8 @@ buildGo119Module {
   src = fetchFromGitHub {
     owner = "fission-codes";
     repo = "kubo";
-    rev = "1f68095bf1cacc9bdf89c0fb052087af3641ac0c";
-    sha256 = "sha256-7C8rrW7QRqD6KmmM5hnyz1m9z+IWJZl/tHKzwPaZ2EM=";
+    rev = "f40ed2f9b9947d5d10d22ab046586ecdcf8841ca";
+    sha256 = "sha256-Tzzv5x19mgXsvk7ja/0N9jUx8wCY43RSak9sbwnk4uQ=";
   };
 
   subPackages = [ "cmd/ipfs" ];
@@ -23,7 +23,7 @@ buildGo119Module {
 
   passthru.tests.kubo = nixosTests.kubo;
 
-  vendorSha256 = "sha256-TLB7xdp7n1fqQ+O+rfSyxfLvHX/5q3uOJlsJKlQfc2U=";
+  vendorSha256 = "sha256-1gMP7OyoqV1BPRmafhazyC0ly0/J0Y/WZuLCrNudhz0=";
 
   outputs = [ "out" "systemd_unit" "systemd_unit_hardened" ];
 
