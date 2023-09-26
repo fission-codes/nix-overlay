@@ -2,7 +2,7 @@
   description = "Fission tools";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-22.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     flake-utils.url = "github:numtide/flake-utils";
     flake-compat = {
       url = "github:edolstra/flake-compat";
@@ -12,7 +12,7 @@
     fission.url = "github:fission-codes/fission/walkah/haskell-nix";
   };
 
-  outputs = { self, nixpkgs, flake-utils, fission, ... }@inputs:
+  outputs = { nixpkgs, flake-utils, fission, ... }:
     flake-utils.lib.eachDefaultSystem
       (system:
         let pkgs = nixpkgs.legacyPackages.${system};
