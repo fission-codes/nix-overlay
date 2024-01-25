@@ -7,13 +7,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: 📤 Checkout
-      - uses: DeterminateSystems/nix-installer-action@main
-        name: ❄️ Set up Nix
-      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: cachix/install-nix-action@v25
+        with:
+          nix_path: nixpkgs=channel:nixos-23.11
       - uses: cachix/cachix-action@v14
         name: 🧰 Cachix
         with:
           name: fission-codes
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: 🏗️ Build
-        run: nix-build
+        run: nix build .#homestar
