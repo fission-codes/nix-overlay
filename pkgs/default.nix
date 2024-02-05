@@ -1,5 +1,7 @@
 { pkgs, fission, system, ... }: {
+  fission-server = pkgs.callPackage ./fission-server.nix { };
   homestar = pkgs.callPackage ./homestar.nix { };
+
   fission-cli = fission.packages.${system}.fission-cli;
-  fission-server = fission.packages.${system}.fission-server;
+  web-api = fission.packages.${system}.fission-server;
 }

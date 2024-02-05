@@ -16,4 +16,6 @@ jobs:
           name: fission-codes
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: 🏗️ Build
-        run: nix build .#homestar
+        run: |
+          nix build .#homestar
+          nix build .#fission-server
