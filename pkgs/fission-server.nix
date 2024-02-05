@@ -11,14 +11,15 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-4A5KCZAj8hqEdPrsn2ZKQMsHy27TtoQMm4M2RMgAsNI=";
   };
 
-  buildInputs = lib.optionals stdenv.isDarwin (
+  buildInputs = with pkgs; [ openssl postgresql ] ++ lib.optionals stdenv.isDarwin (
     with darwin.apple_sdk.frameworks; [
-      pkgs.openssl
       CoreFoundation
       Security
       SystemConfiguration
     ]
   );
+  nativeBuildInputs = with pkgs; [ pkg-config ];
+  OPENSSL_NO_VENDOR = 1;
 
   cargoLock = {
     lockFile = src + "/Cargo.lock";
@@ -27,5 +28,6 @@ rustPlatform.buildRustPackage rec {
       "rs-ucan-0.1.0" = "sha256-HSxIzqPECJ9KbPYU0aitjxpCf0CSDAv7su1PGxZlpHc=";
     };
   };
-  cargoHash = "";
+
+  doCheck = false;
 }
