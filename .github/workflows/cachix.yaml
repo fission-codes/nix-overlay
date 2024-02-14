@@ -7,9 +7,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: 📤 Checkout
-      - uses: cachix/install-nix-action@v25
+      - uses: DeterminateSystems/nix-installer-action@main
+        name: ❄️ Set up Nix
         with:
-          nix_path: nixpkgs=channel:nixos-23.11
+          extra-conf: |
+            extra-substituters = https://cache.iog.io
+            extra-trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
       - uses: cachix/cachix-action@v14
         name: 🧰 Cachix
         with:
@@ -17,5 +20,7 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: 🏗️ Build
         run: |
+          nix build .#fission-cli
+          nix build .#web-api
           nix build .#homestar
           nix build .#fission-server
