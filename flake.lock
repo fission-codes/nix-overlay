@@ -260,11 +260,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1707493759,
-        "narHash": "sha256-QU0FItelogWR7o0ILNOsQ1qBe7HdUyYYydqQsmNovMw=",
+        "lastModified": 1708019020,
+        "narHash": "sha256-LJQ7MjRgMi9e1/wpjiZcAXKQUV3hq4t/SALSwAefDOY=",
         "owner": "fission-codes",
         "repo": "fission-server",
-        "rev": "a7ff1d02d79a6b628ba06c1d963f989b0bb3b552",
+        "rev": "394de877fad021260c69fdb1edd7bb4b2f98108c",
         "type": "github"
       },
       "original": {
