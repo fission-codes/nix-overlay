@@ -10,7 +10,7 @@
     };
 
     fission.url = "github:fission-codes/fission/walkah/haskell-nix";
-    homestar.url = "github:ipvm-wg/homestar/homestar-runtime-v0.1.1";
+    homestar.url = "github:ipvm-wg/homestar/homestar-runtime-v0.2.0";
     fission-server.url = "github:fission-codes/fission-server";
   };
 
