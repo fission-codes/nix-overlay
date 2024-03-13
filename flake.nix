@@ -11,7 +11,7 @@
 
     fission.url = "github:fission-codes/fission/walkah/haskell-nix";
     homestar.url = "github:ipvm-wg/homestar/homestar-runtime-v0.3.0";
-    fission-server.url = "github:fission-codes/fission-server";
+    fission-server.url = "github:fission-codes/fission-server/394de877fad021260c69fdb1edd7bb4b2f98108c";
   };
 
   outputs = { self, nixpkgs, flake-utils, fission, homestar, fission-server, ... }:
